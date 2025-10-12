@@ -1,4 +1,6 @@
-﻿namespace WorldOfZuul
+﻿
+
+namespace WorldOfZuul
 {
     public class Game
     {
@@ -10,27 +12,6 @@
             CreateRooms();
         }
 
-        private void CreateRooms()
-        {
-  
-            Room? outside = new("Outside", "You are standing outside the main entrance of the university. To the east is a large building, to the south is a computing lab, and to the west is the campus pub.");
-            Room? theatre = new("Theatre", "You find yourself inside a large lecture theatre. Rows of seats ascend up to the back, and there's a podium at the front. It's quite dark and quiet.");
-            Room? pub = new("Pub", "You've entered the campus pub. It's a cozy place, with a few students chatting over drinks. There's a bar near you and some pool tables at the far end.");
-            Room? lab = new("Lab", "You're in a computing lab. Desks with computers line the walls, and there's an office to the east. The hum of machines fills the room.");
-            Room? office = new("Office", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.");
-
-            outside.SetExits(null, theatre, lab, pub); // North, East, South, West
-
-            theatre.SetExit("west", outside);
-
-            pub.SetExit("east", outside);
-
-            lab.SetExits(outside, office, null, null);
-
-            office.SetExit("west", lab);
-
-            currentRoom = outside;
-        }
 
         public void Play()
         {
@@ -64,6 +45,7 @@
                 {
                     case "look":
                         Console.WriteLine(currentRoom?.LongDescription);
+                        CheckForMiniGame();
                         break;
 
                     case "back":
@@ -97,6 +79,58 @@
             Console.WriteLine("Thank you for playing World of Zuul!");
         }
 
+        private void CheckForMiniGame()
+        {
+            if(currentRoom != null)
+            {
+                if(currentRoom.MiniGame is QuizGame)
+                {
+                    Console.Title = "Word Fill Quiz Game";
+                    var word = currentRoom.MiniGame.Start();
+                    HandleMiniGameResult(word);
+                }
+                else
+                {
+
+                }
+            }
+            Console.Clear();
+        }
+
+        private void HandleMiniGameResult(string? word)
+        {
+            if (!string.IsNullOrWhiteSpace(word))
+            {
+                Console.WriteLine($"Congratulations! Now you have to remember word: {word}");
+            }
+            else
+            {
+                Console.WriteLine("Better luck next time. You can try again or come back here later");
+            }
+        }
+
+        private void CreateRooms()
+        {
+            Room outside = new("Outside", "You are standing outside the main entrance of the university. To the east is a large building, to the south is a computing lab, and to the west is the campus pub.", null);
+            Room theatre = new("Theatre", "You find yourself inside a large lecture theatre. Rows of seats ascend up to the back, and there's a podium at the front. It's quite dark and quiet.", null);
+            Room pub = new("Pub", "You've entered the campus pub. It's a cozy place, with a few students chatting over drinks. There's a bar near you and some pool tables at the far end.", null);
+            Room lab = new("Lab", "You're in a computing lab. Desks with computers line the walls, and there's an office to the east. The hum of machines fills the room.", null);
+            Room office = new("Office", "You've entered what seems to be an administration office. There's a large desk with a computer on it, and some bookshelves lining one wall.", null);
+            Room QuizGame = new("QuizGame", "You are in a quiz game room.", new QuizGame("secret key word"));
+
+            outside.SetExits(QuizGame, theatre, lab, pub); // North, East, South, West
+
+            theatre.SetExit("west", outside);
+
+            pub.SetExit("east", outside);
+
+            lab.SetExits(outside, office, null, null);
+
+            office.SetExit("west", lab);
+
+            currentRoom = outside;
+        }
+
         private void Move(string direction)
         {
             if (currentRoom?.Exits.ContainsKey(direction) == true)
@@ -109,7 +143,6 @@
                 Console.WriteLine($"You can't go {direction}!");
             }
         }
-
 
         private static void PrintWelcome()
         {
