@@ -18,7 +18,7 @@ public class RouleteGame
     {
         Console.WriteLine("Welcome to the Roulette Game!");
 
-        var subject = await SpinningWheel.Spin(Subjects);
+        var subject = await SpinningWheel.Spin(Subjects, Dots);
 
         Question = Randomizer.GetRandomQuestionForASubject(subject);
 
@@ -60,21 +60,21 @@ public class Question
 
 public class SpinningWheel
 {
-    public async Task<string> Spin(List<string> subjects)
+    public async Task<string> Spin(List<string> subjects, List<string> dots)
     {
         
         for ( int i = 0; i < 50; i++)
         {
             Console.WriteLine("Spinning the roulette");
 
-        var tmp = subjects[0];
-            subjects[0] = subjects[1];
-            subjects[1] = subjects[2];
-            subjects[2] = subjects[3];
-            subjects[3] = tmp; 
-            Console.WriteLine(subjects[0]);
+            foreach(var dot in dots)
+            {
+                Console.Write(dot);
+                await Task.Delay(30);
+                Console.Write("\b\b\b\b    \b\b\b\b");
+            }
 
-           
+
             var tmp = subjects[0];
             subjects[0] = subjects[1];
             subjects[1] = subjects[2];
