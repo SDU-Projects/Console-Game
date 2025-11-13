@@ -8,7 +8,7 @@ await game.Play();
 
 public class RouleteGame
 {
-    public List<string> Dots = new List<string>() { ".", "..", "T..."};
+    public List<string> Dots = new List<string>() { ".", "..", "..."};
     public List<string> Subjects = new List<string>() { "Politics", "Science", "Technology", "Culture" };
     public SpinningWheel SpinningWheel { get; set; } = new SpinningWheel();
     public Randomizer Randomizer {  get; set; } = new Randomizer();
@@ -66,21 +66,22 @@ public class SpinningWheel
         for ( int i = 0; i < 50; i++)
         {
             Console.WriteLine("Spinning the roulette");
-
+            
             foreach(var dot in dots)
             {
                 Console.Write(dot);
-                await Task.Delay(30);
-                Console.Write("\b\b\b\b    \b\b\b\b");
+                await Task.Delay(80);
+                Console.Write("\r    \r");
             }
 
-
+            Console.WriteLine();
+            Console.WriteLine(subjects[0]);
             var tmp = subjects[0];
             subjects[0] = subjects[1];
             subjects[1] = subjects[2];
             subjects[2] = subjects[3];
             subjects[3] = tmp;
-            await Task.Delay(90);
+            await Task.Delay(80);
             Console.Clear();
             
 
