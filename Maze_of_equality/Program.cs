@@ -1,4 +1,6 @@
-﻿namespace Maze
+﻿using Mini_Stories;
+
+namespace Maze
 {
     class Program
     {
@@ -40,6 +42,7 @@
                         }
                     }
 
+                    // add an else statement here
                     Console.WriteLine("Which way do you want to go? (up, down, left, right)\n");
                     string? command = Console.ReadLine()?.ToLower();
                     switch (command)
@@ -133,7 +136,8 @@
                     {
                         Func.draw_maze();
 
-                        if (output != "") {
+                        if (output != "")
+                        {
                             Console.ForegroundColor = ConsoleColor.Red;
                             Console.WriteLine(output);
                             Console.ResetColor();
@@ -144,7 +148,8 @@
         }
     }
 
-    public class Vars {
+    public class Vars
+    {
         public static char[][] maze = [
             ['+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', ' ', ' ', 'F', ' ', '|'],
             ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
@@ -231,7 +236,8 @@
         public static MazePoint? currentPos;
 
 
-        public static void connections() {
+        public static void connections()
+        {
             // point connections
             point1.up = point3;
             point1.right = point2;
@@ -298,7 +304,7 @@
 
             // point interaction
             point1.interaction = InteractionPoints.maze_entrance;
-            point12.interaction = InteractionPoints.minigame_1;
+            point12.interaction = InteractionPoints.MiniStories;
             point15.interaction = InteractionPoints.minigame_2;
             point8.interaction = InteractionPoints.minigame_3;
             point14.interaction = InteractionPoints.minigame_4;
@@ -310,13 +316,16 @@
         }
     }
 
-    public class InteractionPoints {
-        public static void maze_entrance() {
+    public class InteractionPoints
+    {
+        public static void maze_entrance()
+        {
             Console.WriteLine("Why would you want to go back to where you came from?");
         }
 
 
-        public static void maze_exit() {
+        public static void maze_exit()
+        {
             // Console.WriteLine("You can't exit the maze yet. I haven't added this function.");
             if (Vars.collectedWords.Length == Vars.total_words)
             {
@@ -341,9 +350,10 @@
         }
 
 
-        public static void minigame_1() {
+        public static void MiniStories()
+        {
             string word = "mini1";
-            bool victory = pretend_that_this_is_a_minigame();  // THIS IS A PLACEHOLDER FUNCTION, REPLACE WHEN MINIGAMES ARE MADE
+            bool victory = MiniStory.Story();
 
             if (victory)
             {
@@ -352,7 +362,8 @@
         }
 
 
-        public static void minigame_2() {
+        public static void minigame_2()
+        {
             string word = "mini2";
             bool victory = pretend_that_this_is_a_minigame();  // THIS IS A PLACEHOLDER FUNCTION, REPLACE WHEN MINIGAMES ARE MADE
 
@@ -363,7 +374,8 @@
         }
 
 
-        public static void minigame_3() {
+        public static void minigame_3()
+        {
             string word = "mini3";
             bool victory = pretend_that_this_is_a_minigame();  // THIS IS A PLACEHOLDER FUNCTION, REPLACE WHEN MINIGAMES ARE MADE
 
@@ -374,7 +386,8 @@
         }
 
 
-        public static void minigame_4() {
+        public static void minigame_4()
+        {
             string word = "mini4";
             bool victory = pretend_that_this_is_a_minigame();  // THIS IS A PLACEHOLDER FUNCTION, REPLACE WHEN MINIGAMES ARE MADE
 
@@ -385,7 +398,8 @@
         }
 
 
-        public static void minigame_5() {
+        public static void minigame_5()
+        {
             string word = "mini5";
             bool victory = pretend_that_this_is_a_minigame();  // THIS IS A PLACEHOLDER FUNCTION, REPLACE WHEN MINIGAMES ARE MADE
 
@@ -397,7 +411,8 @@
 
 
         // WHEN MINIGAMES ARE MADE THIS FUNCTION WILL NOT BE NEEDED ANYMORE
-        public static bool pretend_that_this_is_a_minigame() {
+        public static bool pretend_that_this_is_a_minigame()
+        {
             Console.WriteLine("t for true, f for false");
             string? something = Console.ReadLine()?.ToLower();
             if (something == "t")
@@ -411,10 +426,12 @@
         }
     }
 
-    public class Func {
-        public static void draw_maze() {
+    public class Func
+    {
+        public static void draw_maze()
+        {
             Console.Clear();
-            
+
             for (int i = 0; i < Vars.maze.Length; i++)
             {
                 for (int j = 0; j < Vars.maze[i].Length; j++)
@@ -426,7 +443,8 @@
         }
 
 
-        public static void write_collected_words() {
+        public static void write_collected_words()
+        {
             Console.Write($"Words collected:");
             for (int i = 0; i < Vars.collectedWords.Length; i++)
             {
@@ -443,23 +461,26 @@
         }
 
 
-        public static void end_game() {
+        public static void end_game()
+        {
             Console.WriteLine("Congratulations, you've completed the Maze of equality!");
             Console.WriteLine("We hope you enjoyed playing. :)");
         }
-    
-    
-        public static void NewWordWrite(string word) {
+
+
+        public static void NewWordWrite(string word)
+        {
             if (!Vars.collectedWords.Contains(word))
-                {
-                    Vars.collectedWords = [.. Vars.collectedWords, word];
-                }
-            Console.WriteLine($"Congratulatios! New word '{word}' has been added to your collection.");
+            {
+                Vars.collectedWords = [.. Vars.collectedWords, word];
+            }
+            Console.WriteLine($"New word '{word}' has been added to your collection.");
             write_collected_words();
         }
     }
 
-    public class MazePoint(int[] phy) {
+    public class MazePoint(int[] phy)
+    {
         public int[] coords = phy;
         public MazePoint? up;
         public MazePoint? down;
