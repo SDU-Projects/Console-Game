@@ -48,13 +48,13 @@ public class RouletteGame
     {
         Console.WriteLine("Spinning the wheel...");
 
-        for (int i = 0; i < 15; i++)
+        for (int i = 0; i < ; i++)
         {
             Console.Write(Subjects[i % Subjects.Count]);
             await Task.Delay(80);
             Console.Write("\r      \r");
         }
-
+        ///////I have to fix the spinning, it's broken on screen
         Console.WriteLine();
         return Subjects[_rng.Next(0, Subjects.Count)];
     }
