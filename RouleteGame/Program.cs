@@ -48,7 +48,7 @@ public class RouletteGame
     {
         Console.WriteLine("Spinning the wheel...");
 
-        for (int i = 0; i < ; i++)
+        for (int i = 0; i <15 ; i++)
         {
             Console.Write(Subjects[i % Subjects.Count]);
             await Task.Delay(80);
