@@ -1,5 +1,6 @@
 using Maze.Enums;
 using MazeGame;
+using ModelMiniGame;
 using Shared.Interfaces;
 
 namespace Maze.Services;
@@ -17,11 +18,11 @@ public class MinigameFactory : IMinigameFactory
     {
         _creators = new Dictionary<MinigameType, Func<IMinigame>>
         {
-            { MinigameType.Story, () => new StoryMinigame() },
-            { MinigameType.Minigame2, () => new StoryMinigame() },
-            { MinigameType.Minigame3, () => new StoryMinigame() },
-            { MinigameType.Minigame4, () => new StoryMinigame() },
-            { MinigameType.Minigame5, () => new StoryMinigame() }
+            { MinigameType.Story, () => new StoryMinigame("favourite") },
+            { MinigameType.MLModelGame, () => new MLModelGame("Banana") },
+            { MinigameType.QuizGame, () => new QuizGame("Apple") },
+            { MinigameType.Minigame4, () => new StoryMinigame("favourite") },
+            { MinigameType.Minigame5, () => new StoryMinigame("favourite") }
         };
     }
 

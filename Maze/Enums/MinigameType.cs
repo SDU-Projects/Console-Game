@@ -4,8 +4,8 @@ public enum MinigameType
 {
     None,
     Story,
-    Minigame2,
-    Minigame3,
+    MLModelGame,
+    QuizGame,
     Minigame4,
     Minigame5
 }

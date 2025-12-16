@@ -84,34 +84,8 @@ namespace WorldOfZuul
     {
         public static async Task Main()
         {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            string apiUrl = "https://localhost:52869/";
-
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine($"🔗 Connecting to API: {apiUrl}");
-            Console.ResetColor();
-
-            try
-            {
-                var game = new GenderEqualityGame(apiUrl);
-                await game.StartGameAsync();
-            }
-            catch (Exception ex)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\n❌ Fatal Error: {ex.Message}");
-                Console.WriteLine("\nPlease ensure:");
-                Console.WriteLine("   • Your API is running");
-                Console.WriteLine("   • The API URL is correct");
-                Console.WriteLine("   • You have internet connectivity");
-                Console.ResetColor();
-            }
-
-            Console.WriteLine("\nPress any key to exit...");
-            Console.ReadKey();
-            //Game game = new();
-            //game.Play();
+                var game = new 
+                await game.Play();
         }
     }
 }

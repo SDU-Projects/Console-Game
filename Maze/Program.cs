@@ -10,7 +10,7 @@ public class Program
         try
         {
             var maze = MazeFactory.CreateDefaultMaze();
-            var player = new Player(maze.StartPosition);
+            var player = new Maze.Models.Player(maze.StartPosition);
             var minigameFactory = new MinigameFactory();
 
             var game = new Game(maze, player, minigameFactory);

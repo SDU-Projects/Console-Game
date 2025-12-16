@@ -9,9 +9,11 @@ public class StoryMinigame : IMinigame
     private readonly List<Story> _stories;
     private readonly Random _random;
     private readonly ConsoleUIBase _ui;
+    private string ReturnKeyWord;
 
-    public StoryMinigame()
+    public StoryMinigame(string word)
     {
+        ReturnKeyWord = word;
         _random = new Random();
         _ui = new();
         _stories = new List<Story>
@@ -56,7 +58,7 @@ public class StoryMinigame : IMinigame
         if (victory)
         {
             _ui.ShowColoredMessage($"Congratulations! You scored {correctAnswers}/{story.Questions.Count}!", ConsoleColor.Green);
-            return MinigameResult.Victory("mini1");
+            return MinigameResult.Victory(ReturnKeyWord);
         }
         else
         {

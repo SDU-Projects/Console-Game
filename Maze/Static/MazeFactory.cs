@@ -92,8 +92,8 @@ public static class MazeFactory
 
         builder
             .AddMinigame(positions["p12"], MinigameType.Story)
-            .AddMinigame(positions["p15"], MinigameType.Minigame2)
-            .AddMinigame(positions["p8"], MinigameType.Minigame3)
+            .AddMinigame(positions["p15"], MinigameType.MLModelGame)
+            .AddMinigame(positions["p8"], MinigameType.QuizGame)
             .AddMinigame(positions["p14"], MinigameType.Minigame4)
             .AddMinigame(positions["p11"], MinigameType.Minigame5);
 

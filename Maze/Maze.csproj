@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ModelMiniGame\ModelMiniGame.csproj" />
+    <ProjectReference Include="..\QuestionGame\QuestionGame.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
     <ProjectReference Include="..\StoryMinigame\StoryMinigame.csproj" />
   </ItemGroup>

@@ -1,27 +1,34 @@
 ﻿using ModelMiniGame.DTOs;
 using ModelMiniGame.Models;
+using Shared.Interfaces;
+using Shared.Models;
+using System;
 
 namespace ModelMiniGame;
 
-public class GenderEqualityGame
+public class MLModelGame : IMinigame
 {
     private readonly Services.ApiService _apiService;
     private readonly GameResult _gameResult;
     private const int MaxRounds = 5;
+    private const string apiUrl = "https://localhost:52869/";
+    private string ReturnKeyWord;
 
-    public GenderEqualityGame(string apiUrl)
+
+    public MLModelGame(string word)
     {
+        ReturnKeyWord = word;
         _apiService = new Services.ApiService(apiUrl);
         _gameResult = new GameResult { TotalRounds = MaxRounds };
     }
 
-    public async Task StartGameAsync()
+    public MinigameResult Play()
     {
         DisplayWelcome();
 
         for (int round = 1; round <= MaxRounds; round++)
         {
-            await PlayRoundAsync(round);
+            PlayRoundAsync(round).Wait();
 
             if (round < MaxRounds)
             {
@@ -32,6 +39,11 @@ public class GenderEqualityGame
         }
 
         DisplayFinalResults();
+
+        if (_gameResult.CorrectGuesses >= 1)
+            return MinigameResult.Victory(ReturnKeyWord);
+        else
+            return MinigameResult.Failure(); 
     }
 
     private void DisplayWelcome()
