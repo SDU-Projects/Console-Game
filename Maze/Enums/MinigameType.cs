@@ -6,6 +6,6 @@ public enum MinigameType
     Story,
     MLModelGame,
     QuizGame,
-    Minigame4,
+    RouletteGame,
     Minigame5
 }

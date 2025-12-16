@@ -5,7 +5,7 @@ public struct MinigameResult
     public bool Success { get; }
     public string? WordCollected { get; }
 
-    public MinigameResult(bool success, string? wordCollected = null)
+    private MinigameResult(bool success, string? wordCollected = null)
     {
         Success = success;
         WordCollected = wordCollected;

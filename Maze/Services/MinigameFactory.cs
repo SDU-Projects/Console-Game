@@ -21,7 +21,7 @@ public class MinigameFactory : IMinigameFactory
             { MinigameType.Story, () => new StoryMinigame("favourite") },
             { MinigameType.MLModelGame, () => new MLModelGame("Banana") },
             { MinigameType.QuizGame, () => new QuizGame("Apple") },
-            { MinigameType.Minigame4, () => new StoryMinigame("favourite") },
+            { MinigameType.RouletteGame, () => new RouletteGame("abc") },
             { MinigameType.Minigame5, () => new StoryMinigame("favourite") }
         };
     }

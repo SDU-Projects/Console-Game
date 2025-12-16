@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using Shared.Interfaces;
+using Shared.Models;
 
-class Program
-{
-    static async Task Main(string[] args)
-    {
-        var game = new RouletteGame();
-        await game.Play();
-    }
-}
-
-public class RouletteGame
+public class RouletteGame : IMinigame
 {
     private readonly Random _rng = new();
     private readonly int _maxSubjectLength;
@@ -21,8 +11,9 @@ public class RouletteGame
 
     public List<Question> Questions = new List<Question>();
     public int Score = 0;
-
-    public RouletteGame()
+    
+    private string returnWord;
+    public RouletteGame(string returnWord)
     {
         int max = 0;
         foreach (var s in Subjects)
@@ -30,47 +21,41 @@ public class RouletteGame
         _maxSubjectLength = max;
 
         LoadQuestions();
+        this.returnWord = returnWord;
     }
 
-    public async Task Play()
+    public MinigameResult Play()
     {
-        while (true) 
+        Console.Clear();
+        Console.WriteLine("Welcome to the Roulette Game!");
+        Console.WriteLine($"Reach {TargetScore} points to win!");
+        Console.WriteLine();
+        
+        while (Score < TargetScore && Questions.Count > 0)
         {
+        
+            string subject = SpinWheel().Result;
+        
             Console.Clear();
-            Console.WriteLine("Welcome to the Roulette Game!");
-            Console.WriteLine($"Reach {TargetScore} points to win!");
+            Console.WriteLine($"You landed on: {subject}");
             Console.WriteLine();
-
-            while (Score < TargetScore && Questions.Count > 0)
-            {
-                string subject = await SpinWheel();
-
-                Console.Clear();
-                Console.WriteLine($"You landed on: {subject}");
-                Console.WriteLine();
-
-                var q = GetRandomQuestion(subject);
-                AskQuestion(q);
-            }
-
-            if (Score >= TargetScore)
-            {
-                Console.WriteLine($"\n YOU WON THE GAME! Your word is WORD_ROULETTE ");
-                break;
-            }
-            Console.WriteLine($"\nNo more questions available. Final score: {Score}");
-            Console.WriteLine("You did not reach the required score. The game will restart.");
-            Console.WriteLine("Press any key to restart the game, or press Q then Enter to quit...");
-
-            var key = Console.ReadKey(true);
-            if (key.Key == ConsoleKey.Q)
-            {
-                Console.WriteLine("Quitting. Goodbye.");
-                return;
-            }
-            Score = 0;
-            LoadQuestions();
+        
+            var q = GetRandomQuestion(subject);
+            AskQuestion(q);
         }
+        
+        if (Score >= TargetScore)
+        {
+            Console.WriteLine($"\n YOU WON THE GAME! Your word is WORD_ROULETTE ");
+            return MinigameResult.Victory(returnWord);
+        }
+        Console.WriteLine($"\nNo more questions available. Final score: {Score}");
+        Console.WriteLine("You did not reach the required score. The game will restart.");
+        Console.WriteLine("Press any key to exit the game.");
+        Console.ReadKey();
+
+        return MinigameResult.Failure();
+
     }
 
     public async Task<string> SpinWheel()
