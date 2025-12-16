@@ -1,0 +1,5 @@
+﻿@MLModel1_WebApi1_HostAddress = https://localhost:52869
+
+POST {{MLModel1_WebApi1_HostAddress}}/predict
+
+###
