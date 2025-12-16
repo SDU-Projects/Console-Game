@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfZuul", "WorldOfZuul\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Maze", "Maze\Maze.csproj", "{EDB28EA0-B0C2-46E6-BC35-834222698E53}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryMinigame", "StoryMinigame\StoryMinigame.csproj", "{B87F6773-4D63-4BDA-9128-BF0A061DB4BE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{EDB28EA0-B0C2-46E6-BC35-834222698E53}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EDB28EA0-B0C2-46E6-BC35-834222698E53}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EDB28EA0-B0C2-46E6-BC35-834222698E53}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B87F6773-4D63-4BDA-9128-BF0A061DB4BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B87F6773-4D63-4BDA-9128-BF0A061DB4BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B87F6773-4D63-4BDA-9128-BF0A061DB4BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B87F6773-4D63-4BDA-9128-BF0A061DB4BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
