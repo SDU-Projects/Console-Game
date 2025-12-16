@@ -4,12 +4,16 @@
     {
         public string ShortDescription { get; private set; }
         public string LongDescription { get; private set;}
+
         public Dictionary<string, Room> Exits { get; private set; } = new();
 
-        public Room(string shortDesc, string longDesc)
+        public IMiniGame? MiniGame { get; private set; }
+
+        public Room(string shortDesc, string longDesc, IMiniGame? game)
         {
             ShortDescription = shortDesc;
             LongDescription = longDesc;
+            MiniGame = game;
         }
 
         public void SetExits(Room? north, Room? east, Room? south, Room? west)
