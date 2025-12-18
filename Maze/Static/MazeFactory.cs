@@ -12,7 +12,7 @@ public static class MazeFactory
         {
             ['+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', ' ', ' ', 'F', ' ', '|'],
             ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
-            ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
+            ['|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '6', ' ', ' ', ' ', ' ', '|'],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '+', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '-', '+'],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', '2', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
             ['|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '4', ' ', '|', ' ', ' ', ' ', ' ', ' ', '|', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '|'],
@@ -49,7 +49,8 @@ public static class MazeFactory
             ["p18"] = new(1, 9),
             ["p19"] = new(1, 15),
             ["p20"] = new(1, 21),
-            ["p21"] = new(1, 34)
+            ["p21"] = new(1, 34),
+            ["GunGame"] = new(1, 28)
         };
 
         var builder = new MazeBuilder()
@@ -88,14 +89,16 @@ public static class MazeFactory
             .ConnectNodes(positions["p18"], positions["p13"], Direction.Down)
             .ConnectNodes(positions["p19"], positions["p20"], Direction.Right)
             .ConnectNodes(positions["p20"], positions["p11"], Direction.Down)
-            .ConnectNodes(positions["p20"], positions["p21"], Direction.Right);
+            .ConnectNodes(positions["p20"], positions["GunGame"], Direction.Right)
+            .ConnectNodes(positions["GunGame"], positions["p21"], Direction.Right);
 
         builder
             .AddMinigame(positions["p12"], MinigameType.Story)
             .AddMinigame(positions["p15"], MinigameType.MLModelGame)
             .AddMinigame(positions["p8"], MinigameType.QuizGame)
             .AddMinigame(positions["p14"], MinigameType.RouletteGame)
-            .AddMinigame(positions["p11"], MinigameType.Minigame5);
+            .AddMinigame(positions["p11"], MinigameType.BoxGame)
+            .AddMinigame(positions["GunGame"], MinigameType.GunGame);
 
         return builder.Build();
     }

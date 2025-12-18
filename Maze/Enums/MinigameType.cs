@@ -7,5 +7,6 @@ public enum MinigameType
     MLModelGame,
     QuizGame,
     RouletteGame,
-    Minigame5
+    BoxGame,
+    GunGame
 }

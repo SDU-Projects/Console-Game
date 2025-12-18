@@ -1,3 +1,4 @@
+using GunGame;
 using Maze.Enums;
 using MazeGame;
 using ModelMiniGame;
@@ -18,11 +19,12 @@ public class MinigameFactory : IMinigameFactory
     {
         _creators = new Dictionary<MinigameType, Func<IMinigame>>
         {
-            { MinigameType.Story, () => new StoryMinigame("favourite") },
-            { MinigameType.MLModelGame, () => new MLModelGame("Banana") },
-            { MinigameType.QuizGame, () => new QuizGame("Apple") },
-            { MinigameType.RouletteGame, () => new RouletteGame("abc") },
-            { MinigameType.Minigame5, () => new StoryMinigame("favourite") }
+            { MinigameType.Story, () => new StoryMinigame("Secret") },
+            { MinigameType.MLModelGame, () => new MLModelGame("Santa") },
+            { MinigameType.QuizGame, () => new QuizGame("Wants") },
+            { MinigameType.RouletteGame, () => new RouletteGame("Some") },
+            { MinigameType.BoxGame, () => new BoxGame("Secret") },
+            { MinigameType.GunGame, () => new GunMiniGame("Gift") }
         };
     }
 

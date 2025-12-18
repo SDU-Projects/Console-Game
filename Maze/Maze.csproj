@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BoxMiniGame\BoxMiniGame.csproj" />
+    <ProjectReference Include="..\GunGame\GunGame.csproj" />
     <ProjectReference Include="..\ModelMiniGame\ModelMiniGame.csproj" />
     <ProjectReference Include="..\QuestionGame\QuestionGame.csproj" />
     <ProjectReference Include="..\RouleteGame\RouleteGame.csproj" />
