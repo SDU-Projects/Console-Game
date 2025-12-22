@@ -21,10 +21,10 @@ public class MinigameFactory : IMinigameFactory
         {
             { MinigameType.Story, () => new StoryMinigame("Recognize") },
             { MinigameType.MLModelGame, () => new MLModelGame("women's") },
-            { MinigameType.QuizGame, () => new QuizGame("history") },
+            { MinigameType.QuizGame, () => new QuizGame("history,") },
             { MinigameType.RouletteGame, () => new RouletteGame("change") },
             { MinigameType.BoxGame, () => new BoxGame("society") },
-            { MinigameType.GunGame, () => new GunMiniGame("today") }
+            { MinigameType.GunGame, () => new GunMiniGame("today.") }
         };
     }
 
