@@ -48,7 +48,8 @@ public class Game
         var minigame = _minigameFactory.CreateMinigame(minigameType);
         
         var result = minigame.Play();
-        
+        _ui.DrawMaze(_maze, _player.CurrentPosition);
+
         if (result.Success && !string.IsNullOrEmpty(result.WordCollected))
         {
             _state.CollectWord(result.WordCollected);
