@@ -14,7 +14,10 @@ public class ConsoleUI : ConsoleUIBase
         ShowColoredMessage("╔════════════════════════════════════════╗", ConsoleColor.Cyan);
         ShowColoredMessage("║   Welcome to the Maze of Equality!     ║", ConsoleColor.Cyan);
         ShowColoredMessage("╚════════════════════════════════════════╝", ConsoleColor.Cyan);
-        ShowMessage("\nNavigate the maze, play minigames, and collect words!");
+        ShowMessage("\nIn this game, you will explore mini-challenges that teach you about remarkable women and their achievements.");
+        ShowMessage("\nEach completed mini-game will give you a word.");
+        ShowMessage("\nYour goal is to write down every word you receive and use them to form a final sentence at the end. ");
+        ShowMessage("\nGood luck, and enjoy learning while having fun!");
         ShowMessage("Press any key to start...");
         Console.ReadKey(true);
     }
