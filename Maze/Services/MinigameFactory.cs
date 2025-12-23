@@ -19,7 +19,7 @@ public class MinigameFactory : IMinigameFactory
         {
             { MinigameType.Story, () => new StoryMinigame() },
             { MinigameType.Minigame2, () => new BoxMinigame() },
-            { MinigameType.Minigame3, () => new StoryMinigame() },
+            { MinigameType.Minigame3, () => new GunMinigame() },
             { MinigameType.Minigame4, () => new StoryMinigame() },
             { MinigameType.Minigame5, () => new StoryMinigame() }
         };
