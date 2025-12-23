@@ -18,7 +18,7 @@ public class MinigameFactory : IMinigameFactory
         _creators = new Dictionary<MinigameType, Func<IMinigame>>
         {
             { MinigameType.Story, () => new StoryMinigame() },
-            { MinigameType.Minigame2, () => new StoryMinigame() },
+            { MinigameType.Minigame2, () => new BoxMinigame() },
             { MinigameType.Minigame3, () => new StoryMinigame() },
             { MinigameType.Minigame4, () => new StoryMinigame() },
             { MinigameType.Minigame5, () => new StoryMinigame() }

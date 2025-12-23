@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.6.33829.357
+VisualStudioVersion = 17.14.36414.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorldOfZuul", "WorldOfZuul\WorldOfZuul.csproj", "{B6F53520-756B-449A-8940-959F0B7184FD}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryMinigame", "StoryMinigame\StoryMinigame.csproj", "{B87F6773-4D63-4BDA-9128-BF0A061DB4BE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csproj", "{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BOXGAME", "ConsoleApp1\BOXGAME.csproj", "{3D915383-F731-45A3-B5A6-B613BDE41F0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63FCAA59-62FD-4EEA-AEB8-AC199FD0508B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D915383-F731-45A3-B5A6-B613BDE41F0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D915383-F731-45A3-B5A6-B613BDE41F0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D915383-F731-45A3-B5A6-B613BDE41F0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D915383-F731-45A3-B5A6-B613BDE41F0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
