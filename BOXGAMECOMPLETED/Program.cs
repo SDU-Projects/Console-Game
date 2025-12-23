@@ -2,8 +2,9 @@
 using System.Threading;
 using System.Text;
 
-class Program
+class BOXGAMECOMPLETED
 {
+   
     static void BOX1700(string ans1, string ans2)
     {
         Console.WriteLine("┌───────────────┐");
@@ -45,7 +46,7 @@ class Program
     }
 
 
-    static void Main()
+    static void BOXGAMEMain()
     {
         string a1 = "";
         string a2 = "";
