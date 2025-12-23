@@ -13,7 +13,7 @@ public class GameState
     public bool IsGameOver { get; private set; }
     public bool IsVictory { get; private set; }
 
-    public GameState(int requiredWordsCount, string correctSentence = "1 2 3 4 5")
+    public GameState(int requiredWordsCount, string correctSentence = "Recognize women's history, change society today.")
     {
         _requiredWordsCount = requiredWordsCount;
         _correctSentence = correctSentence.ToLower();

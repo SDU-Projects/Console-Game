@@ -50,7 +50,7 @@ public static class MazeFactory
             ["p19"] = new(1, 15),
             ["p20"] = new(1, 21),
             ["p21"] = new(1, 34),
-            ["GunGame"] = new(1, 28)
+            ["p22"] = new(1, 28)
         };
 
         var builder = new MazeBuilder()
@@ -89,8 +89,8 @@ public static class MazeFactory
             .ConnectNodes(positions["p18"], positions["p13"], Direction.Down)
             .ConnectNodes(positions["p19"], positions["p20"], Direction.Right)
             .ConnectNodes(positions["p20"], positions["p11"], Direction.Down)
-            .ConnectNodes(positions["p20"], positions["GunGame"], Direction.Right)
-            .ConnectNodes(positions["GunGame"], positions["p21"], Direction.Right);
+            .ConnectNodes(positions["p20"], positions["p22"], Direction.Right)
+            .ConnectNodes(positions["p22"], positions["p21"], Direction.Right);
 
         builder
             .AddMinigame(positions["p12"], MinigameType.Story)
@@ -98,7 +98,7 @@ public static class MazeFactory
             .AddMinigame(positions["p8"], MinigameType.QuizGame)
             .AddMinigame(positions["p14"], MinigameType.RouletteGame)
             .AddMinigame(positions["p11"], MinigameType.BoxGame)
-            .AddMinigame(positions["GunGame"], MinigameType.GunGame);
+            .AddMinigame(positions["p22"], MinigameType.GunGame);
 
         return builder.Build();
     }

@@ -19,12 +19,12 @@ public class MinigameFactory : IMinigameFactory
     {
         _creators = new Dictionary<MinigameType, Func<IMinigame>>
         {
-            { MinigameType.Story, () => new StoryMinigame("Secret") },
-            { MinigameType.MLModelGame, () => new MLModelGame("Santa") },
-            { MinigameType.QuizGame, () => new QuizGame("Wants") },
-            { MinigameType.RouletteGame, () => new RouletteGame("Some") },
-            { MinigameType.BoxGame, () => new BoxGame("Secret") },
-            { MinigameType.GunGame, () => new GunMiniGame("Gift") }
+            { MinigameType.Story, () => new StoryMinigame("Recognize") },
+            { MinigameType.MLModelGame, () => new MLModelGame("women's") },
+            { MinigameType.QuizGame, () => new QuizGame("history,") },
+            { MinigameType.RouletteGame, () => new RouletteGame("change") },
+            { MinigameType.BoxGame, () => new BoxGame("society") },
+            { MinigameType.GunGame, () => new GunMiniGame("today.") }
         };
     }
 
