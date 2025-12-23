@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\ConsoleApp1\BOXGAME.csproj" />
-    <ProjectReference Include="..\Maze\Maze.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
-    <ProjectReference Include="..\StoryMinigame\StoryMinigame.csproj" />
-    <ProjectReference Include="..\WorldOfZuul\WorldOfZuul.csproj" />
   </ItemGroup>
 
 </Project>

@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ConsoleApp1\BOXGAME.csproj" />
+    <ProjectReference Include="..\GUNGAMES\GUNGAMES.csproj" />
     <ProjectReference Include="..\Shared\Shared.csproj" />
     <ProjectReference Include="..\StoryMinigame\StoryMinigame.csproj" />
   </ItemGroup>
